@@ -78,7 +78,7 @@ module PolicyAssertions
 
     def calling_method
       if PolicyAssertions.config.ruby_version > 1
-        caller_locations(3, 1)[0].label
+        caller_locations(3, 1)[0].label.split('#').last
       else
         caller[2][/`.*'/][1..-2]
       end
